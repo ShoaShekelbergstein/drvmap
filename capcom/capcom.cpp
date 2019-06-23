@@ -22,9 +22,9 @@ namespace capcom
 	struct capcom_payload
 	{
 		void* operator new(const std::size_t sz) {
-			return VirtualAlloc(nullptr, sz, MEM_COMMIT, PAGE_EXECUTE_READWRITE);
+			return VirtualAlloc(nullptr, sz, MEM_RESERVE | MEM_COMMIT, PAGE_EXECUTE_READWRITE);
 		}
-		void operator delete(void* ptr, const std::size_t sz) {
+		void operator delete(void* ptr) {
 			VirtualFree(ptr, 0, MEM_RELEASE);
 		}
 		auto get() const noexcept -> void* { return const_cast<void**>(&payload_ptr); }
