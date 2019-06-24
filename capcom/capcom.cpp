@@ -72,7 +72,7 @@ namespace capcom
 
 	void capcom_driver::close_driver_handle()
 	{
-		CloseHandle(m_capcom_driver.get());
+		m_capcom_driver = nullptr;
 	}
 
 	void capcom_driver::run(user_function payload, const bool enable_interrupts)
