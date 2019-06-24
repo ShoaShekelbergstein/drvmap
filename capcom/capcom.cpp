@@ -238,7 +238,7 @@ namespace capcom
 
 
 
-	uintptr_t capcom_driver::allocate_pool(size_t size, uint16_t pooltag, kernel::POOL_TYPE pool_type, const bool page_align, size_t* out_size)
+	uintptr_t capcom_driver::allocate_pool(size_t size, uint32_t pooltag, kernel::POOL_TYPE pool_type, const bool page_align, size_t* out_size)
 	{
 		constexpr auto page_size = 0x1000u;
 
